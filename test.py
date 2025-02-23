@@ -6,6 +6,7 @@ keep_prompting = True
 
 # Define the query or prompt
 while keep_prompting == True:
+    print("Type exit() to exit the program.")
     prompt = input("Prompt: ")
     if prompt == "exit()":
         break
@@ -19,8 +20,8 @@ while keep_prompting == True:
     # Extract and print the response content
     answer = response["message"]["content"]
     print("Answer:", answer)
-    user_continue = input("Do you want to ask another question? y/n ").lower
-    
+    user_continue = input("Do you want to ask another question? y/n ").lower()
+
     if user_continue != "y" and user_continue != "n":
         print("Invalid input.")
     elif user_continue == "n":
