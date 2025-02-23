@@ -2,11 +2,11 @@ import ollama
 
 # Specify the desired model (ensure it matches one listed by 'ollama list')
 model_name = "llama3.2:3b"
-keep_prompting = True
+
+print("Type exit() to exit the program.")
 
 # Define the query or prompt
-while keep_prompting == True:
-    print("Type exit() to exit the program.")
+while True:
     prompt = input("Prompt: ")
     if prompt == "exit()":
         break
@@ -16,13 +16,12 @@ while keep_prompting == True:
         model=model_name,
         messages=[{"role": "user", "content": prompt}]
     )
-
+    
     # Extract and print the response content
-    answer = response["message"]["content"]
-    print("Answer:", answer)
-    user_continue = input("Do you want to ask another question? y/n ").lower()
+    print("Answer:", response["message"]["content"])
+    user_continue = input("Do you want to ask another question? yes/no ").lower()
 
-    if user_continue != "y" and user_continue != "n":
+    if user_continue != "yes" and user_continue != "no":
         print("Invalid input.")
-    elif user_continue == "n":
+    elif user_continue == "no":
         break
